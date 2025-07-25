@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --cor-fundo: #f5f3f9; 
+  --cor-container: #ffffff;
+  --cor-primaria: #a98fc4; 
+  --cor-primaria-hover: #9177ac; 
+  --cor-texto: #5c546b; 
+  --cor-titulo: #8a6db9;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  width: 90%;
+  padding: 2.5em;
+  border-radius: 24px;
+  background: var(--cor-container);
+  box-shadow: 0 10px 40px rgba(138, 109, 185, 0.15);
+  transition: all 0.3s ease;
+}
+
+h1 {
+  color: var(--cor-titulo);
+  font-weight: 700;
+  font-size: 1.8em;
+  line-height: 1.3;
+}
+
+button {
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1em;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(138, 109, 185, 0.3);
+}
+
+button:hover {
+  background-color: var(--cor-primaria-hover);
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 8px 25px rgba(138, 109, 185, 0.4);
+}
+
+.imagem-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* Proporção 4:3 */
+  background-color: #f2eef7;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+#imagem-gato {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+#frase {
+  margin-top: 1.5em;
+  font-size: 1.25em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--cor-texto);
+  min-height: 60px;
+}
+
+footer {
+  margin-top: 2em;
+  color: #c0b8d0;
+  font-weight: 600;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(169, 143, 196, 0.2);
+  border-top: 5px solid var(--cor-primaria);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imagem-wrapper.loading .loader {
+  opacity: 1;
+}
+.imagem-wrapper.loading #imagem-gato {
+  opacity: 0;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.frase-principal {
+  font-size: 1.1em;
+  color: #8a6db9;
+  margin-top: -10px;
+  margin-bottom: 25px;
+}
+
+/* Estilo para o botão de Instalar o App (PWA) */
+.btn-instalar {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-instalar:hover {
+    background-color: var(--cor-primaria-hover);
+}

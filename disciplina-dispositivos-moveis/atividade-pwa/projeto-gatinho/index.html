@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gatinhos para Dias Difíceis</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="container">
+    <h1>🐱 Gatinhos para Dias Difíceis 🐈</h1>
+    <p class="frase-principal">Deixe um gatinho aleatório trazer um pouco de leveza para o seu dia.</p>
+    <button id="btn-gatinho">sua dose de gatinho do dia</button>
+    
+    <div class="conteudo">
+      <div class="imagem-wrapper">
+        <div class="loader"></div>
+        <img id="imagem-gato" src="" alt="Gatinho carinhoso" />
+      </div>
+      <p id="frase"></p>
+    </div>
+  </div>
+
+ <footer>
+    <button id="installAppBt" class="btn-instalar" style="display: none;" onclick="installApp()">
+        Instalar App
+    </button>
+    <p>Feito por Well 🐱 - Projeto de PWA com Bootstrap e JavaScript &copy; 2025 </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

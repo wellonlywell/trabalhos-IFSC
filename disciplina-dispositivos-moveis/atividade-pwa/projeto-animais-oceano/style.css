@@ -1,0 +1,23 @@
+/* Garante que o corpo ocupe toda a altura da tela, para o rodapé ficar no final */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f8ff; /* Um azul bem claro (AliceBlue) para o fundo */
+}
+
+/* Garante que o conteúdo principal empurre o rodapé para baixo */
+main {
+    flex-grow: 1;
+}
+
+/* Muda o cursor nos links de navegação para indicar que são clicáveis */
+.nav-link {
+    cursor: pointer;
+}
+
+/* Garante que as imagens dos cartões não fiquem distorcidas */
+.card-img-top {
+    height: 200px;
+    object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+}

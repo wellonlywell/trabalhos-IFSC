@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App de Sobrevivência com Dignidade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="nav-topo">
+      <div>
+        <h1>Ir e Voltar: tem dias bons e dias não tão bons assim</h1>
+        <p class="subtitulo">Em dias difíceis, lembrar de fazer aquilo que te faz bem. Um dia por vez 💙</p>
+      </div>
+      <ul class="menu">
+        <li><button id="btn-toggle" class="botao-toggle" aria-label="Alternar entre Home e Lembretes">Lembretes</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home: -->
+    <section id="home" class="tela ativa">
+      <article class="cartao cartao-grande">
+        <h2>Nosso Lembrete</h2>
+        <p>
+         Só por hoje eu decidi me cuidar. Um dia por vez.<br/><br/>
+         Hoje eu escolho viver com sentido, com cuidado e com amor próprio — um compromisso que faço comigo.
+        </p>
+      </article>
+    </section>
+
+    <!-- Lembretes: lista de cartões -->
+    <section id="lembretes" class="tela">
+      <div class="painel-cartoes">
+
+        <article class="cartao autocuidado">
+          <div class="icone" aria-hidden="true">🛁</div>
+          <h2>Banho quentinho</h2>
+          <p>Tomar banho quente para aliviar a tensão e se sentir mais confortável. Se tive óleo essencial de lavanda, isso ajuda para o banho ficar mais confortável e aconchegante</p>
+          <button class="botao-acao" aria-label="Marcar banho quente como feito">✔️ Marcar feito</button>
+        </article>
+
+        <article class="cartao autocuidado">
+          <div class="icone" aria-hidden="true">🛏️</div>
+          <h2>Pressão com cobertor</h2>
+          <p>Cobertor pesado para conforto tátil e sensação de segurança.</p>
+          <button class="botao-acao" aria-label="Marcar uso de cobertor pesado como feito">✔️ Marcar feito</button>
+        </article>
+
+        <article class="cartao autocuidado">
+          <div class="icone" aria-hidden="true">🍵</div>
+          <h2>Cházim</h2>
+          <p>Tomar um chá quentinho para aquecer e acalmar o corpo e a mente.</p>
+          <button class="botao-acao" aria-label="Marcar cházim como feito">✔️ Marcar feito</button>
+        </article>
+
+        <article class="cartao meta">
+          <div class="icone" aria-hidden="true">🎧</div>
+          <h2>Ouvir música</h2>
+          <p>Aquela playlist que te faz bem, aquela que te acalma e faz a mente desacelerar.</p>
+          <button class="botao-acao" aria-label="Marcar estudo de programação como feito">✔️ Marcar feito</button>
+        </article>
+
+        <article class="cartao meta">
+          <div class="icone" aria-hidden="true">🏊🏽‍♂️ 🏃🏾 🚣🏾‍♀️</div>
+          <h2>Movimentar o corpitcho</h2>
+          <p>Caminhar, correr, ir na aula de remo, ir na natação. Mesmo que difícil, tentar não faltar as atividades do corpo. Presença e cuidado com o corpo em movimento.</p>
+          <button class="botao-acao" aria-label="Marcar presença na aula de natação">✔️ Marcar feito</button>
+        </article>
+
+        <article class="cartao motivacao">
+          <div class="icone" aria-hidden="true">📝</div>
+          <h2>Escrever Emoções</h2>
+          <p>Reservar um momento para reconhecer e escrever o que está sentindo, escrever tudo que vier na mente sem medo e sem culpa, escrever ajuda nos pensamentos.</p>
+          <button class="botao-acao" aria-label="Marcar escrita das emoções como feita">✔️ Marcar feito</button>
+        </article>
+
+        <article class="cartao motivacao">
+          <div class="icone" aria-hidden="true">🌟</div>
+          <h2>Frase para Hoje</h2>
+          <p>"Um dia de cada vez, só por hoje, já é sua vitória do dia. <br>
+              Não desanime da sua própria caminhada."</p>
+        </article>
+
+        <article class="cartao motivacao">
+          <div class="icone" aria-hidden="true">💛</div>
+          <h2>Você merece dignidade e respeito, sempre.</h2>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito por Well para lembrar como se salvar em dias ruins — App Ir e Voltar (sempre que precisar)</p>
+  </footer>
+
+  <script>
+    // --- Código para alternar entre Home e Lembretes ---
+    const btnToggle = document.getElementById('btn-toggle');
+    const homeSection = document.getElementById('home');
+    const lembretesSection = document.getElementById('lembretes');
+
+    btnToggle.addEventListener('click', () => {
+      const isHomeActive = homeSection.classList.contains('ativa');
+
+      if (isHomeActive) {
+        homeSection.classList.remove('ativa');
+        lembretesSection.classList.add('ativa');
+        btnToggle.textContent = 'Home';
+        btnToggle.setAttribute('aria-label', 'Voltar para a Home');
+      } else {
+        lembretesSection.classList.remove('ativa');
+        homeSection.classList.add('ativa');
+        btnToggle.textContent = 'Lembretes';
+        btnToggle.setAttribute('aria-label', 'Mostrar lembretes');
+      }
+    });
+
+    //  Código para marcar tarefas como feitas ---
+    
+    // Seleciona TODOS os botões que têm a classe 'botao-acao'
+    const botoesAcao = document.querySelectorAll('.botao-acao');
+
+    // Para cada botão encontrado, vamos adicionar um 'ouvinte' de clique
+    botoesAcao.forEach(botao => {
+      botao.addEventListener('click', (evento) => {
+        
+        // Encontra o 'cartão' que é o pai do botão que foi clicado
+        const cartao = evento.target.closest('.cartao');
+        
+        // Adiciona a classe 'feito' ao cartão
+        cartao.classList.add('feito');
+        
+        // Altera o texto do botão
+        botao.textContent = '✅ Feito!';
+        
+        // Desabilita o botão para não ser clicado de novo
+        botao.disabled = true;
+      });
+    });
+  </script>
+
+</body>
+</html>

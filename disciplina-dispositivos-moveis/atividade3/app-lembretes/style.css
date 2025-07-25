@@ -1,0 +1,252 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #d7e2ec, #a9c1d9);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 110px; /* espaço para header fixo */
+  padding-bottom: 70px; /* espaço para footer */
+  line-height: 1.5;
+}
+
+/* Header fixo topo */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #5a7ea3cc;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.nav-topo {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-topo h1 {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0 6px #1b2a47cc;
+}
+
+.subtitulo {
+  font-size: 1.05rem;
+  color: #dce9fb;
+  font-style: italic;
+  margin-top: 4px;
+  user-select: none;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li button.botao-toggle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #dce9fb;
+  background: transparent;
+  border: 2px solid #dce9fb;
+  border-radius: 12px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.menu li button.botao-toggle:hover {
+  background-color: #f4f4f4cc;
+  color: #5a7ea3;
+}
+
+/* Main */
+main {
+  width: 100%;
+  max-width: 960px;
+  flex-grow: 1;
+}
+
+.tela {
+  display: none;
+}
+
+.tela.ativa {
+  display: block;
+}
+
+/* Cartão grande Home */
+.cartao-grande {
+  background-color: #f0f6fc;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 40px 36px;
+  margin: 0 16px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #2a3f6e;
+  user-select: none;
+  font-weight: 600;
+}
+
+/* Painel de cartões */
+.painel-cartoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+/* Cartões individuais */
+.cartao {
+  background-color: #f0f6fc;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px 28px;
+  width: 300px;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  position: relative;
+  cursor: default;
+  color: #222;
+}
+
+.cartao:not(.feito):hover {
+  background-color: #d7e4f7;
+  box-shadow: 0 8px 20px #5a7ea3aa;
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.icone {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  user-select: none;
+  filter: drop-shadow(0 0 3px #7a99d7aa);
+}
+
+.cartao h2 {
+  color: #3b5ca8;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.cartao p {
+  flex-grow: 1;
+  font-size: 1.05rem;
+  color: #3d3d3d;
+  line-height: 1.4;
+}
+
+/* Bordas coloridas por categoria */
+.cartao.autocuidado {
+  border-left: 6px solid #ff8fc3;
+}
+
+.cartao.meta {
+  border-left: 6px solid #7199ff; 
+}
+
+.cartao.motivacao {
+  border-left: 6px solid #ffdb70; 
+}
+
+
+.botao-acao {
+  background-color: #3b5ca8;
+  border: none;
+  border-radius: 12px;
+  color: #f0f6fc;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  align-self: flex-start;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px #2a3f6ecc;
+  margin-top: 15px;
+  user-select: none;
+}
+
+.botao-acao:hover {
+  background-color: #2a3f6e;
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #5a7ea3cc;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  color: #e8ecf9;
+  text-align: center;
+  padding: 10px 0 8px;
+  font-style: italic;
+  font-size: 1rem;
+  user-select: none;
+  z-index: 1000;
+}
+
+/* Responsividade */
+@media (max-width: 650px) {
+    .nav-topo {
+        flex-direction: column;
+        gap: 12px;
+        padding-bottom: 16px;
+    }
+
+    body {
+        padding-top: 150px; /* Aumenta o espaço para o header maior */
+    }
+
+    .cartao {
+        width: 90%;
+    }
+}
+
+/* Estilo para o cartão quando a tarefa for marcada como feita */
+.cartao.feito {
+  opacity: 0.6; /* Deixa o cartão um pouco transparente */
+  transform: scale(0.98); 
+}
+
+.cartao.feito h2,
+.cartao.feito p {
+  text-decoration: line-through; /* Tacha o texto para indicar que foi concluído */
+}
+
+.cartao.feito .botao-acao {
+  background-color: #7f9ac4; 
+  cursor: not-allowed; /* Muda o cursor para indicar que não é clicável */
+  box-shadow: none;
+}
